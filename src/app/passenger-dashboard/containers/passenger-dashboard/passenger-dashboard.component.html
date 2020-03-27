@@ -3,9 +3,9 @@
    [items]="passengers"
   ></passenger-count>
   <br/>
-  <div *ngFor="let passenger of passengers;">
+  <!--<div *ngFor="let passenger of passengers;">
     {{passenger.fullname}}
-  </div>
+  </div>-->
   <passenger-detail
   *ngFor="let passenger of passengers;"
   [detail]="passenger"
