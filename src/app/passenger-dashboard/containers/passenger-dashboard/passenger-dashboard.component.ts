@@ -22,15 +22,12 @@ export class PassengerDashboardComponent implements OnInit {
 
 
   ngOnInit() {
-   /* this.passengerService
+    this.passengerService
        .getPassengers()
        .subscribe((data: Passenger[]) => {
-         console.log('Data'+ data);
-         this.passengers = data;
-       });*/ // problem with db locally 
-      this.passengerService.getJSON().subscribe(data => {
-        this.passengers = data.passengers;
-    });   
+         console.log('Data :'+ data);
+         this.passengers =  data;
+       });
   }
 
   handleRemove(event: Passenger) {
