@@ -1,9 +1,27 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<div style="text-align:center">
+<div class="app">
     <!--<h1>{{ title }}</h1>-->
     <!--<passenger-dashboard></passenger-dashboard>-->
-    <passenger-viewer></passenger-viewer>
-</div>
-
+    <!--<passenger-viewer></passenger-viewer>-->
+    <nav class="nav">
+        <a
+            *ngFor="let item of nav"
+            [routerLink]="item.link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: item.exact }"
+            > {{ item.name }}
+        </a>
+    <!--<a
+    routerLink="/"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    > Home
+    </a> <--Styling active routes-->
+    <!--<a
+    routerLink="/oops"
+    routerLinkActive="active">
+    404</a>-->
+</nav>
 <router-outlet></router-outlet>
+</div>

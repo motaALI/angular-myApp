@@ -2,17 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router'
+
 // containers
 import { PassengerDashboardComponent} from './containers/passenger-dashboard/passenger-dashboard.component';
+import { PassengerViewerComponent } from './containers/passenger-viewer/passenger-viewer.component';
 
 // components
 import { PassengerCountComponent } from './components/passenger-count/passenger-count.component';
 import { PassengerDetailComponent } from './components/passenger-detail/passenger-detail.component';
 import { PassengerFormComponent } from './components/passenger-form/passenger-form.component';
+
 // service
 import { PassengerDashboardService } from './passenger-dashboard.service';
-import { PassengerViewerComponent } from './containers/passenger-viewer/passenger-viewer.component';
+
+const routes : Routes = [
+   {
+     path: 'passengers',
+     children: [
+       { path: '', component: PassengerDashboardComponent },
+       //dynamic routes
+       { path: ':id', component: PassengerViewerComponent}
+     ]
+     
+   }
+];
 
 @NgModule({
    declarations: [
@@ -25,12 +40,12 @@ import { PassengerViewerComponent } from './containers/passenger-viewer/passenge
    imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule,
+    RouterModule.forChild(routes),
    ],
-   exports: [
-     PassengerViewerComponent
-    //  PassengerDashboardComponent,
-   ],
+  /* exports: [
+     PassengerViewerComponent   // don't need to export cus U use routes.forChild
+   ],*/
    providers: [
        PassengerDashboardService
    ]

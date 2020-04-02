@@ -9,8 +9,10 @@ import { Passenger } from '../../models/passenger.interface';
 export class PassengerDetailComponent implements OnChanges, OnInit {
 
   @Input () detail: Passenger;
-  @Output() remove: EventEmitter<any> = new EventEmitter();
-  @Output() edit: EventEmitter<any> = new EventEmitter();
+  @Output() remove: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+  @Output() edit: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+
+  @Output() view: EventEmitter<Passenger> = new EventEmitter<Passenger>();
 
   editing: boolean = false;
   
@@ -36,7 +38,7 @@ export class PassengerDetailComponent implements OnChanges, OnInit {
     this.remove.emit(this.detail);
   }
   onEdit() {
-    this.edit.emit(this.detail.fullname);
+    this.edit.emit(this.detail);
   }
   toggleEditing() {
      if (this.editing )  {
@@ -44,5 +46,7 @@ export class PassengerDetailComponent implements OnChanges, OnInit {
      }
      this.editing = !this.editing;
   }
-
+  goToPassenger() {
+    this.view.emit(this.detail);
+  }
 }
