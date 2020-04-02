@@ -1,0 +1,16 @@
+.nav {
+    margin:  0 0 10px;
+    padding: 0 0 20px;
+    border-bottom: 1px solid #dce5f2;
+}
+.nav a {
+    background-color:  #1a61c4;
+    color: #fff;
+    padding: 4px 10px;
+    margin: 0 2px;
+    border-radius: 2px;
+}
+.nav .active {
+    color: #4c00be;
+    background-color: #32f5a4;
+}

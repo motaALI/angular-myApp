@@ -1,5 +1,9 @@
 <div>
+  <button (click)="goBack()">
+    &lsaquo; GO back
+  </button>
   <passenger-form
   [detail]="passenger"
-  (update)="onUpdatePassenger($event)"></passenger-form>
+  (update)="onUpdatePassenger($event)">
+</passenger-form>
 </div>

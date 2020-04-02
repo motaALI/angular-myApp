@@ -9,13 +9,23 @@ import { PassengerDashboardModule } from './passenger-dashboard/passenger-dashbo
 
 
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router'
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found.component';
+ 
 
-
+const routes: Routes = [
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  // { path: '', redirectTo: 'passengers', pathMatch: 'full' }, implement redirect
+  { path: '**', component: NotFoundComponent }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NotFoundComponent // wilcard routes for 404 handling
   ],
   imports: [
 
@@ -24,9 +34,12 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
     // custom modules
-    PassengerDashboardModule
+    PassengerDashboardModule,
+
+    // Rout
+    RouterModule.forRoot(routes),
+     // RouterModule.forRoot(routes, { useHash: true}), Hash location strategy
   ],
   providers: [],
   bootstrap: [AppComponent]

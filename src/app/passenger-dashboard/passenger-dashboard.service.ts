@@ -43,7 +43,7 @@ export class PassengerDashboardService {
         .map((response: any) =>  response.json());
        // .catch((error: any) => Observable.throw(error.json())); // just add this 
      }
-     getPassenger(id: string): Observable<Passenger> {
+     getPassenger(id: any): Observable<Passenger> {
         return this.getPassengers()
           .pipe(
             flatMap(passengers => passengers),

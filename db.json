@@ -1,17 +1,18 @@
 {
   "passengers": [
     {
+      "fullname": "KOKO",
       "id": 1,
-      "fullname": "Stephen",
       "checkedIn": true,
-      "checkInDate": 1490742000000,
-      "baggage": ""
+      "baggage": "hand-hold",
+      "checkInDate": 1585816167315
     },
     {
+      "fullname": "Peggy",
       "id": 2,
-      "fullname": "Rose",
-      "checkedIn": false,
-      "baggage": ""
+      "checkedIn": true,
+      "baggage": "hand-hold",
+      "checkInDate": 1585816450626
     },
     {
       "fullname": "Motawakil ALI ALDOUMA",
